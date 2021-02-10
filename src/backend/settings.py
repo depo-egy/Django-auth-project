@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #my apps
     'welcome_app' ,
     "social_django",
+    'accounts',
     #########################
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,8 +46,10 @@ INSTALLED_APPS = [
     
 ]
 
-LOGIN_REDIRECT_URL = "welcome" #default login is to redirect to a profile page , so this line is used to redirect a view function.
-LOGOUT_REDIRECT_URL = "welcome"
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+LOGIN_REDIRECT_URL = "home" #default login is to redirect to a profile page , so this line is used to redirect a view function.
+#LOGOUT_REDIRECT_URL = "welcome"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
