@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+Hello, {{ user.username|default:'Guest' }}!
+
+<div>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'password_change' %}">Change password</a>
+        {% comment %} password_change refers to a builtin variable in django auth system for password change {% endcomment %}
+    {% else %}
+         <a href="{% url 'login' %}">Login</a> 
+        {% comment %} login is a builtin variable in the django auth system leads to the login page  {% endcomment %}
+    {% endif %}
+</div>
+{% endblock %}
+
